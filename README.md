@@ -37,7 +37,7 @@ Description of Requirement.
 ### Requirement Two
 Description of Requirement.
 
-### REquirement Three
+### Requirement Three
 Description of Requirement.
 
 ## Other Noteworthy Things
