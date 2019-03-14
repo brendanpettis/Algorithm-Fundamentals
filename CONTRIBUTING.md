@@ -2,7 +2,6 @@
 
 # Table of Contents
 * [How To Contribute](#how-to-contribute)
-* [Types Of Contributions](#types-of-contributions)
 * [Roles & Responsibilities](#roles-and-responsibilities)
 * [Contributors](#contributors)
 * [Project Overview](https://github.com/brendanpettis/ClassProject)
@@ -35,18 +34,6 @@
 * Implement the data structure or algorithm in JavaScript.
 
 * Go back to your issue, and leave a comment with the code snippet by clicking on the insert code icon <> and then pasting the code between the two back ticks. 
-
-----
-## Types of Contributions
-
-|          Contributions           | 
-|:--------------------------------:|
-|**Documentation**                 | 
-|**Features**                      | 
-|**Bugfixes**                      | 
-|**Miscellaneous**                 | 
-----
-
 
 ## Roles And Responsibilities
 
