@@ -3,7 +3,7 @@
 # Table of Contents
 * [How To Contribute](#how-to-contribute)
 * [Types Of Contributions](#types-of-contributions)
-* [Roles & Responsibilities](#roles-&-responsibilities)
+* [Roles & Responsibilities](#roles-and-responsibilities)
 * [Contributors](#contributors)
 
 ## How To Contribute
@@ -21,7 +21,7 @@
 ----
 
 
-## Roles & Responsibilities
+## Roles And Responsibilities
 * Place Roles & Responsibility instructions here
 
 ## Contributors
