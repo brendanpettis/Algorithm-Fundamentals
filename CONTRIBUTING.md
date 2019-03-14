@@ -9,8 +9,11 @@
 
 ## How To Contribute
 
-First Locate the Issues tab, then click on it.
+* First, locate the Issues tab in the main repository and click on it.
 ![Issues Tab](https://res.cloudinary.com/bpettis/image/upload/v1552580419/Issue_vfwtkv.png "Issues Tab")
+
+* Notice the new issue button on the right hand side of the screen? Click on it.
+![New Issue](https://res.cloudinary.com/bpettis/image/upload/v1552580715/new-issue_x9dlhw.png "Issues Tab")
 
 ----
 ## Types of Contributions
