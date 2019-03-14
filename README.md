@@ -1,4 +1,4 @@
-# Data Structures - Class Project
+# Algorithms and Data Structures - Class Project
 
 # Table of Contents
 * [Description](#description)
@@ -9,7 +9,7 @@
 * [Contribute](https://github.com/brendanpettis/ClassProject/blob/master/CONTRIBUTING.md)
 
 ## Description
-A web application that demonstrates functionality of different data structures and algorithms.
+A web application that demonstrates functionality of different algorithms and data structures.
 
 ----
 
