@@ -9,6 +9,7 @@
 
 ## How To Contribute
 
+### Create a Feature Request via Issues
 * First, locate the Issues tab in the main repository and click on it.
 ![Issues Tab](https://res.cloudinary.com/bpettis/image/upload/v1552580419/Issue_vfwtkv.png "Issues Tab")
 
@@ -26,6 +27,11 @@
 
 * Finally, locate and click the submit button to create the issue.
 ![Submit Button](https://res.cloudinary.com/bpettis/image/upload/v1552582557/submit_hjsl8a.png "Submit Button")
+
+* You'll recieve a confirmation from a project lead in a comment if your feature request is approved.
+![Approval](https://res.cloudinary.com/bpettis/image/upload/v1552583523/approval_jjjfje.png "Approval")
+
+### Complete the Feature and Deliver
 
 ----
 ## Types of Contributions
