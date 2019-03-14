@@ -23,12 +23,17 @@
 
 
 ## Roles And Responsibilities
-* Place Roles & Responsibility instructions here
+
+### Project Leads
+* Project Leads are responsible for the overall organization, integration, and final deliverable of project.
+
+### Contributors
+* Contributors are responsible for idea generation, and delivering js files that meet individual task requirements.
 
 ## Contributors
 * Project Lead: [Brendan](https://github.com/brendanpettis)
 * Project Lead: [Nick](https://github.com/nickpapadakis-matc)
-* Core Contributor: [Laura](https://github.com/lskaiser)
+* Contributor: [Laura](https://github.com/lskaiser)
 * Contributor: [AJ](https://github.com/ajmataj)
 * Contributor: [AJ](https://github.com/ajfarmer9)
 * Contributor: [Nick](https://github.com/NicholasClaudio)
