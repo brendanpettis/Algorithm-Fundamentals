@@ -9,7 +9,6 @@
 
 ## Description
 A web application that demonstrates functionality of different data structures and algorithms.
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ----
 
