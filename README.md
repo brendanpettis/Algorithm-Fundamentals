@@ -46,7 +46,7 @@ Description of Requirement.
 
 ## Run the Application
 
-Preview the project as it develops by visiting the Netlify URL -> [Here](https://affectionate-blackwell-557495.netlify.com)
+Preview the project as it develops by visiting -> [Algorithm Fundamentals](https://www.algorithmfundamentals.com/)
 
 ## Available Scripts
 
