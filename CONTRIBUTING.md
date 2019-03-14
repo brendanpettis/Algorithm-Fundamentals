@@ -8,7 +8,7 @@
 * [Project Overview](https://github.com/brendanpettis/ClassProject)
 
 ## How To Contribute
-* Place contributing instructions here
+* ![Issues Tab](https://res.cloudinary.com/bpettis/image/upload/v1552580106/Issue_zekflf.png "Issues Tab")
 
 ----
 ## Types of Contributions
