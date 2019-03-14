@@ -6,6 +6,7 @@
 * [Run the Application](#run-the-application)
 * [Dependencies](#dependencies)
 * [Takeaway](#takeaway)
+* [Contribute](https://github.com/brendanpettis/ClassProject/blob/master/CONTRIBUTING.md)
 
 ## Description
 A web application that demonstrates functionality of different data structures and algorithms.
