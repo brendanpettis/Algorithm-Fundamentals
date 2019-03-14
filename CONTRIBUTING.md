@@ -5,6 +5,7 @@
 * [Types Of Contributions](#types-of-contributions)
 * [Roles & Responsibilities](#roles-and-responsibilities)
 * [Contributors](#contributors)
+* [Project Overview](https://github.com/brendanpettis/ClassProject)
 
 ## How To Contribute
 * Place contributing instructions here
