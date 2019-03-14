@@ -2,10 +2,27 @@
 
 # Table of Contents
 * [How To Contribute](#how-to-contribute)
+* [Types Of Contributions](#types-of-contributions)
+* [Roles & Responsibilities](#roles-&-responsibilities)
 * [Contributors](#contributors)
 
 ## How To Contribute
 * Place contributing instructions here
+
+----
+## Types of Contributions
+
+|          Contributions           | 
+|:--------------------------------:|
+|**Documentation**                 | 
+|**Features**                      | 
+|**Bugfixes**                      | 
+|**Miscellaneous**                 | 
+----
+
+
+## Roles & Responsibilities
+* Place Roles & Responsibility instructions here
 
 ## Contributors
 * Project Lead: [Brendan](https://github.com/brendanpettis)
