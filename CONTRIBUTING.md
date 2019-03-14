@@ -32,7 +32,7 @@
 ![Approval](https://res.cloudinary.com/bpettis/image/upload/v1552583523/approval_jjjfje.png "Approval")
 
 ### Once Approved
-* Implement the data structure or algorithm in Java Script.
+* Implement the data structure or algorithm in JavaScript.
 
 * Go back to your issue, and leave a comment with the code snippet by clicking on the insert code icon <> and then pasting the code between the two back ticks. 
 
