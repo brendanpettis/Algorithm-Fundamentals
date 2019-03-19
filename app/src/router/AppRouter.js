@@ -8,13 +8,13 @@ import NotFoundPage from '../components/Pages/NotFoundPage'
 
 const AppRouter = () => (
     <BrowserRouter>
-        <Header />
-        <Switch>
-            <Route path='/' component={HomePage} exact={true}/>
-            <Route path='/algorithms' component={AlgorithmsPage}/>
-            <Route path='/datastructures' component={DataStructuresPage}/>
-            <Route component={NotFoundPage}/>
-        </Switch>  
+            <Header />
+            <Switch>
+                <Route path='/' component={HomePage} exact={true}/>
+                <Route path='/algorithms' component={AlgorithmsPage}/>
+                <Route path='/datastructures' component={DataStructuresPage}/>
+                <Route component={NotFoundPage}/>
+            </Switch>
     </BrowserRouter>
 );
 
