@@ -7,14 +7,12 @@ import DataStructuresPage from '../components/Pages/DataStructuresPage'
 
 const AppRouter = () => (
     <BrowserRouter>
-        <div>
-            <Header />
-                <Switch>
-                    <Route path='/' component={HomePage} exact={true}/>
-                    <Route path='/algorithms' component={AlgorithmsPage}/>
-                    <Route path='/datastructures' component={DataStructuresPage}/>
-                </Switch>   
-        </div>
+        <Header />
+        <Switch>
+            <Route path='/' component={HomePage} exact={true}/>
+            <Route path='/algorithms' component={AlgorithmsPage}/>
+            <Route path='/datastructures' component={DataStructuresPage}/>
+        </Switch>  
     </BrowserRouter>
 );
 

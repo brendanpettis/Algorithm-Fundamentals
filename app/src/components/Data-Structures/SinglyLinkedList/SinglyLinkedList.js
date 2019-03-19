@@ -388,6 +388,7 @@ class SinglyLinkedList extends Component {
             }
             restart();
             break;
+            default: break;
         }
       }
 
