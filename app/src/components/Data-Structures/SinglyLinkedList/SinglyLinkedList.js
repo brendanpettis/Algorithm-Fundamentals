@@ -23,15 +23,15 @@ class SinglyLinkedList extends Component {
       //  - reflexive edges are indicated on the node (as a bold black circle).
       //  - links are always source < target; edge directions are set by 'left' and 'right'.
       const nodes = [{
-          id: 'Head',
+          id: 0,
           reflexive: false
         },
         {
-          id: 'Middle',
+          id: 1,
           reflexive: true
         },
         {
-          id: 'Tail',
+          id: 2,
           reflexive: false
         }
       ];
