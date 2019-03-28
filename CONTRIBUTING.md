@@ -6,6 +6,31 @@
 * [Contributors](#contributors)
 * [Project Overview](https://github.com/brendanpettis/ClassProject)
 
+----
+
+## Algorithms and Data Structures Being Implemented
+
+### Status
+:x: Not Started    
+:large_orange_diamond: In Progress    
+:white_check_mark: Complete    
+
+|              Algorithms        |  <br>Status       | 
+|:--------------------------------:|:-----------------:|
+|**Bubble Sort**                   | :x:                   |
+|**Counting Sort**                   | :x:                   |
+|**Heap Sort**                   | :x:                   |
+|**Merge Sort**                   | :x:                   |
+|**Binary Search**                   | :x:                 |
+
+|              Data Structures        |  <br>Status       | 
+|:--------------------------------:|:-----------------:|
+|**Singly Linked List**                   | :x:                  |
+|**Doubly Linked List**                   | :x:                   |
+|**Stack**                   | :x:                   |
+|**Queue**                   | :x:                   |
+
+----
 ## How To Contribute
 
 ### Create a Feature Request via Issues
