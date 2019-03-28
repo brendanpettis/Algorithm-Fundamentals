@@ -17,7 +17,7 @@
 
 |              Algorithms        |  <br>Status       | 
 |:--------------------------------:|:-----------------:|
-|**Bubble Sort**                   | :x:                   |
+|**Bubble Sort**                   | :white_check_mark:                   |
 |**Counting Sort**                   | :x:                   |
 |**Heap Sort**                   | :x:                   |
 |**Merge Sort**                   | :x:                   |
@@ -25,7 +25,7 @@
 
 |              Data Structures        |  <br>Status       | 
 |:--------------------------------:|:-----------------:|
-|**Singly Linked List**                   | :x:                  |
+|**Singly Linked List**                   | :white_check_mark:                  |
 |**Doubly Linked List**                   | :x:                   |
 |**Stack**                   | :x:                   |
 |**Queue**                   | :x:                   |
