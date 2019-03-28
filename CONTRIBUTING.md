@@ -25,6 +25,7 @@
 
 |              Data Structures        |  <br>Status       | 
 |:--------------------------------:|:-----------------:|
+|**Array**                   | :x:                   |
 |**Singly Linked List**                   | :white_check_mark:                  |
 |**Doubly Linked List**                   | :x:                   |
 |**Stack**                   | :x:                   |
