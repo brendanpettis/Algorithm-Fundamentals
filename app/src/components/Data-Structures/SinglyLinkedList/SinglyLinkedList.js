@@ -1,8 +1,39 @@
 import React, { Component } from 'react'
 import * as d3 from "d3";
 import './style.css';
+import Highlight from 'react-highlight'
+import styled from 'styled-components'
+import { Modal, Button } from 'react-bootstrap'
+
+const HighlightWrapper = styled.div`
+  width: 95%;
+  margin: auto;
+`;
 
 class SinglyLinkedList extends Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+
+    this.state = {
+      code: {
+        show: false
+      },
+      experiments: {
+        show: false
+      }
+    };
+  }
+
+  handleClose(name) {
+    this.setState({ [name]: { show: false }});
+  }
+
+  handleShow(name) {
+    this.setState({ [name]: { show: true }});
+  }
 
   componentDidMount = () => {
       // set up SVG for D3
@@ -416,7 +447,435 @@ class SinglyLinkedList extends Component {
     return (
       <div>
           <h1>Singly Linked List</h1>
+          <h3>What is it?</h3>
+          <h3>Big O</h3>
+          <h3>Examples / Use Cases</h3>
+          <h3>Interactive Animation</h3>
           <div id="singly"></div>
+        <>
+        <Button variant="primary" onClick={()=> this.handleShow("code")}>
+          Show What's Under the Hood
+        </Button>
+
+        <Modal size="lg" show={this.state.code.show} onHide={() => this.handleClose("code")}>
+          <Modal.Header closeButton>
+            <Modal.Title>Sample Code Implementation</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+          <HighlightWrapper>
+              <Highlight innerHTML={true}>{'<h3>Sample Code Implementation</h3>'}</Highlight>
+              <Highlight language="javascript">
+                {`
+
+                /* 
+                  Node Class
+                  - Stores a piece of data
+                  - Has a reference to the next node
+                */
+
+                class Node {
+                  constructor(val){
+                    this.val = val;
+                    this.next = null;
+                  }
+                }
+
+                /* 
+                  Singly Linked List
+                  - Uses Push, Pop, and has a length
+                  - Creates nodes by utilizing the above node class
+                */
+              
+              class SinglyLinkedList {
+                constructor(){
+                  this.head = null;
+                  this.tail = null;
+                  this.length = 0;
+                }
+                // Method to insert a new node to the end of the list 
+                push(val){
+           
+                  var newNode = new Node(val);                
+                  if(!this.head){
+                    this.head = newNode;
+                    this.tail = this.head;
+                  }
+                  else {
+                    this.tail.next = newNode;
+                    this.tail = newNode;
+                  }
+                  this.length++;
+                  return this;
+                }
+                // Method to remove a node from the list 
+                pop(){
+                  if(!this.head){
+                    return undefined;
+                  }
+                  var current = this.head;
+                  var newTail = current;
+                  while(current.next){
+                    newTail = current;
+                    current = current.next;
+                  }             
+                  this.tail = newTail;
+                  this.tail.next = null;
+                  this.length--;
+              
+                  if(this.length === 0){
+                    this.head = null;
+                    this.tail = null;
+                  }
+                  return current;
+                }
+              
+                // Method to shift nodes by swapping out the head
+                shift(){
+                  if(!this.head){
+                    return undefined;
+                  }
+                  var oldHead = this.head;
+                  this.head = oldHead.next;
+                  this.length--;
+
+                   if(this.length === 0){
+                    this.tail = null;
+                  }
+                  return oldHead;
+                }
+
+                // Method to insert a new load to the beginning of the list
+                unshift(val){
+                  var newNode = new Node(val);
+                 
+                  if(!this.head){
+                    this.head = newNode;
+                    this.tail = this.head;
+                  }
+                  else {
+                    newNode.next = this.head;
+                    this.head = newNode;
+                  }
+                  this.length++;
+                  return this;
+                }
+              
+                // Takes in an index and pulls out the corresponding value
+                get(index){
+                  if(index < 0 || index >= this.length){
+                    return null;
+                  }
+                  var counter = 0;
+                  var currentNode = this.head;
+              
+                  while(counter !== index){
+                    currentNode = currentNode.next;
+                    counter++;
+                  }// Once the loop ends current node will be at the corresponding index
+                  return currentNode;
+                }
+              
+                // Takes in an index and value, and updates the corresponding node with the new value
+                set(index, value){
+                  var foundNode = this.get(index);
+
+                  if(foundNode){
+                    foundNode.val = value;
+                    return true;
+                  } 
+                  return false;
+                }
+                // Takes in and index and value and inserts a new node with the corresponding value at the specified index
+                insert(index, val){
+                  if(index < 0 || index > this.length){
+                    return false;
+                  }
+
+                  if(index === this.length){
+                    this.push(val);
+                    return true;
+                  }
+
+                  if(index === 0){
+                    this.unshift(val);
+                    return true;
+                  }
+
+                  var newNode = new Node(val);
+                  var previousNode = this.get(index - 1);
+                  var tempRef = previousNode.next;
+                  previousNode.next = newNode;
+                  newNode.next = tempRef;
+                  this.length++;
+                  return true;
+                }
+
+                // Takes in an index and removes the node at that index.
+                remove(index){
+
+                  if(index < 0 || index > this.length){
+                    return undefined;
+                  }
+
+                  if(index === this.length - 1){
+                    return this.pop();
+                  }
+
+                  if(index === 0){
+                    return this.shift();
+                  }
+
+                  var previousNode = this.get(index -1);
+                  var removedNode = previousNode.next;            
+                  previousNode.next = removedNode.next;
+                  this.length--;
+                  return removedNode;
+                }
+
+                // Reverses the linked list, a common CS interview question, take notes++
+                reverse(){
+                  var tempHead = this.head;
+                  this.head = this.tail;
+                  this.tail = tempHead;
+                  var nextNode;
+                  var prevNode = null;
+              
+                  for(var i = 0; i < this.length; i++){
+              
+                    nextNode = tempHead.next;             
+                    tempHead.next = prevNode;
+                    prevNode = tempHead;
+                    tempHead = nextNode;
+                  }
+                  return this;
+                }
+
+                // Not normally needed but will be useful to show reversed linked list
+                print(){
+                  var arr = [];
+                  var currentNode = this.head;
+                  while(currentNode){
+                    arr.push(currentNode.val);         
+                    currentNode = currentNode.next;
+                  }
+                  // Once all nodes have been traversed display the array formed
+                  console.log(arr);
+                }
+              }
+                `}
+              </Highlight>
+            </HighlightWrapper>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={()=> this.handleClose("code")}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+
+      <>
+      <Button variant="warning" onClick={()=> this.handleShow("experiments")}>
+          Show Console Experiments
+        </Button>
+
+        <Modal size="lg" show={this.state.experiments.show} onHide={() => this.handleClose("experiments")}>
+          <Modal.Header closeButton>
+            <Modal.Title>Console Experiments</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+          <HighlightWrapper>
+              <Highlight innerHTML={true}>{'<h3>Console Experiments</h3>'}</Highlight>
+              <Highlight language="javascript">
+                {`            
+                  /* 
+                    Pop Tests, pop a node off, then display the current value of the list after pop
+                    Repeat until list is empty.
+                  */
+                  
+                  // Instantiate a new list
+                  var list = new SinglyLinkedList();
+                  
+                  // Push three nodes on to it
+                  list.push("Hello");
+                  list.push("Goodbye");
+                  list.push("World");
+                  
+                  // Get rid of one
+                  list.pop();
+                  // Display
+                  list
+                  // ^^ Repeat
+                  list.pop();
+                  list
+                  list.pop();
+                  list
+                  
+                  
+                  /* 
+                    Shift Tests, can reuse the original list if still in the same console session
+                  */
+                  
+                  // Push three nodes on to it
+                  list.push("Hello");
+                  list.push("Goodbye");
+                  list.push("World");
+                  
+                  // Shift the nodes over and remove the head
+                  list.shift();
+                  // Display the results
+                  list
+                  // ^^ Repeat
+                  list.shift();
+                  list
+                  list.shift();
+                  list
+                  
+                  /*
+                    Unshift Tests, 
+                  */
+                  
+                  // Push three nodes on to it
+                  list.push("Hello");
+                  list.push("Goodbye");
+                  list.push("World");
+                  // Add a new head node
+                  list.unshift("Added");
+                  // Display the results
+                  list
+                  // Remove all of the nodes
+                  list.pop();
+                  list.pop();
+                  list.pop();
+                  list.pop();
+                  
+                  // Will Hi will become the head and tail node
+                  list.unshift("Hi");
+                  // Unshift again, and watch "Hi" become the tail node, while "Bye" becomes the new head node
+                  list.unshift("Bye");
+                  // Clear out our list
+                  list.pop();
+                  list.pop();
+                  /*
+                    Get Tests
+                  */
+                  
+                  // Push four nodes on to the list
+                  list.push("Hello");
+                  list.push("Goodbye");
+                  list.push("World");
+                  list.push("<3");
+                  
+                  // Should return "Hello"
+                  list.get(0);
+                  // Should return "Goodbye"
+                  list.get(1);
+                  // Should return "World"
+                  list.get(2);
+                  // Should return "<3"
+                  list.get(3);
+                  // Out of bounds, Should return null
+                  list.get(5);
+                  
+                  /* 
+                    Set Tests
+                  */
+                  
+                  // Should return "World"
+                  list.get(2);
+                  // Should return true on success
+                  list.set(2, "My Friends");
+                  // Should now return "My Friends" at index 2
+                  list.get(2);
+                  
+                  /* 
+                    Insert Tests
+                  */
+                  
+                  // First we're going to add something to the start of the list
+                  // Display the current list
+                  list
+                  // Insert at 0, Should return true
+                  list.insert(0, "First");
+                  // List should display length of five with First at the head
+                  list
+                  
+                  // Now we're going to add something to the end of the list
+                  // Should return null
+                  list.get(5);
+                  // Should return true
+                  list.insert(5, "LAST");
+                  // Should return "LAST"
+                  list.get(5);
+                  
+                  /* 
+                    Remove Tests 
+                  */
+                  
+                  // Remove from the Front
+                  // Display the list, should be a length of 6, with First at head, and LAST at tail
+                  list
+                  // Should return the node removed of "First"
+                  list.remove(0);
+                  // Display the list, should be a length of 5, with Hello at head, and LAST at tail
+                  list
+                  
+                  // Remove from the middle
+                  // Should return the node removed of "<3"
+                  list.remove(3);
+                  // Display the list, should be a length of 4, with Hello at head, and LAST at tail
+                  list 
+                  
+                  
+                  // Remove from the End
+                  // Should return the node removed of "LAST"
+                  list.remove(3);
+                  // Display the list, should be a length of 3, with Hello at head, and My Friends at tail
+                  list
+                  
+                  /*
+                    Reverse Tests
+                  */
+                  
+                  // For this it will probably be easier to run a new console session
+                  // After copying and pasting the Node and Stringly Linked List classes into the console run these commands
+                  
+                  // Instantiates a new list
+                  var list = new SinglyLinkedList();
+                  
+                  // Pushes four values into the list
+                  list.push("Hello");
+                  list.push("Goodbye");
+                  list.push("World");
+                  list.push("<3");
+                  
+                  // Displays whats in the list as an array
+                  list.print();
+                  
+                  // Run this to reverse the list
+                  list.reverse();
+                  
+                  // Display the freshly reversed list with the print function
+                  list.print();
+                  
+                  /* 
+                    Please forgive my grammar and comment over kill.
+                    I hope you enjoyed the demo and were able to follow along!
+                    - Brendan Pettis 
+                  */
+                `}
+              </Highlight>
+            </HighlightWrapper>
+
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={()=> this.handleClose("experiments")}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+          
       </div>
     );
   }
