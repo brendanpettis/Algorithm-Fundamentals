@@ -333,7 +333,129 @@ class BinaryTree extends Component {
               <Highlight innerHTML={true}>{'<h3>Sample Code Implementation</h3>'}</Highlight>
               <Highlight language="javascript">
                 {`
-
+                    /*
+                    Binary Search Trees(BST) are used to quickly check
+                    whether an element is present in a set or not
+                    */
+                    
+                    var tree;
+                    
+                    function StartUp(){
+                    
+                    //create a tree object
+                    tree = new Tree();
+                    
+                    //Adding values to the tree
+                    //first value will become root
+                    for(var i = 0; i <= 10; i++){
+                    tree.addValue(Math.floor(Math.random() * 101));
+                    console.log("Added value " + i);
+                    }
+                    
+                    //just output values in tree
+                    tree.traverse();
+                    
+                    console.log("You can look through tree object below. Has all nodes inside. It is kind of hard to see it this way. Gets complicated quickly.");
+                    console.log("You can search the tree using [ tree.search(val) ] val being the int you want to search for.");
+                    //You can go through tree in console
+                    return tree;
+                    }
+                    
+                    class Tree{
+                    //root starts as null
+                    constructor(){
+                    this.root = null;
+                    }
+                    
+                    //Creates a new node with given value
+                    //If root is null then the given value becomes root
+                    //otherwise value is set into a child node
+                    addValue(val){
+                    var n = new Node(val);
+                    if(this.root == null){
+                    this.root = n;
+                    console.log("Made root a new value");
+                    } else{
+                    console.log("Going to addNode()");
+                    this.root.addNode(n);
+                    }
+                    }
+                    
+                    //just goes through Tree and outputs values
+                    //in order from left to right
+                    traverse(){
+                    this.root.visit();//visits the root first
+                    console.log("Visited root");
+                    }
+                    
+                    //search for given Value
+                    //if found returns that subtree
+                    //if not found returns null
+                    search(val){
+                    var found = this.root.search(val);
+                    return found;
+                    }
+                    
+                    }//End of Tree Class
+                    
+                    class Node{
+                    //New Node needs a value and set children to null
+                    constructor(val){
+                    this.value = val;
+                    this.left = null;
+                    this.right = null;
+                    }
+                    
+                    //if value in this node equals the given value then return this node/subtree
+                    search(val){
+                    if(this.value == val){
+                    return this;
+                    }else if(val < this.value && this.left != null){//if given value is < current node value use recursion to go to left child
+                    return this.left.search(val);
+                    }else if(val > this.value && this.right != null){//if given value is < current node value use recursion to go to right child
+                    return this.right.search(val);
+                    }
+                    return null;//if I can't find the given value(val) then return null
+                    }//end of search
+                    
+                    //going to each node and console.logging the value in it
+                    visit(){
+                    if(this.left != null){//if left child is not null then go there
+                    this.left.visit();
+                    console.log("visited the left node");
+                    }
+                    
+                    console.log(this.value);
+                    
+                    if(this.right != null){//same as above just for the right child
+                      this.right.visit();
+                      console.log("visited the right node");
+                    }
+                    }//end of visit
+                    
+                    // add a new node to tree with given value
+                    addNode(n){
+                    if(n.value < this.value){//if given value is < current node value check to see if left child node is null
+                    if(this.left == null){//if null put the value in 'n' there
+                    this.left = n;
+                    console.log("Entered value into left null child node");
+                    }else {//if left node has a value then add new left node with given value
+                    this.left.addNode(n);
+                    console.log("Added value to new left node");
+                    }
+                    }else if(n.value > this.value){//same as left side(above)
+                    if(this.right == null){
+                    this.right = n;
+                    console.log("Entered value into right null child node");
+                    }else{
+                    this.right.addNode(n);
+                    console.log("Added value to new right node");
+                    }
+                    }
+                    }//end of addNode
+                    
+          
+                    }//End of Node Class
                
                 `}
               </Highlight>
