@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './style.css';
 import Highlight from 'react-highlight'
 import styled from 'styled-components'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Card } from 'react-bootstrap'
 
 const HighlightWrapper = styled.div`
   width: 95%;
@@ -66,25 +66,29 @@ class ParallelArray extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Parallel Arrays</h1> 
-        <h3>What are they?</h3>
-        <h3>Big O</h3>
-        <h3>Examples / Use Cases</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Sneakers</th>
-              <th>Prices</th>
-              <th>Rating</th>
-            </tr>    
-          </thead>
-          <tbody id='parallel'>
-          </tbody>
-        </table>
+         <Card style={{ width: '450px'}}> 
+          <Card.Header><h1>Array</h1></Card.Header>
+          <Card.Body>
+            <Card.Title>What is it?</Card.Title>
+            <Card.Text>
+            In computer science, an array data structure, or simply an array, is a data structure consisting of a collection of elements, each identified by at least one array index or key. An array is stored such that the position of each element can be computed from its index tuple by a mathematical formula.
+            </Card.Text>
 
+            <Card.Title>Visual Example</Card.Title>
+            <table>
+              <thead>
+                <tr>
+                  <th>Sneakers</th>
+                  <th>Prices</th>
+                  <th>Rating</th>
+                </tr>    
+              </thead>
+              <tbody id='parallel'>
+              </tbody>
+            </table>
+            
         <Button variant="primary" onClick={()=> this.handleShow("code")}>
-          Show What's Under the Hood
+         Sample Code
         </Button>
 
         <Modal size="lg" show={this.state.code.show} onHide={() => this.handleClose("code")}>
@@ -110,7 +114,11 @@ class ParallelArray extends Component {
             </Button>
           </Modal.Footer>
         </Modal>      
-      </div>
+       
+        
+
+          </Card.Body>
+        </Card>
     )
   }
 }

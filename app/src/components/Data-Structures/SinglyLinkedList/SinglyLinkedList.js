@@ -3,7 +3,7 @@ import * as d3 from "d3";
 import './style.css';
 import Highlight from 'react-highlight'
 import styled from 'styled-components'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Card } from 'react-bootstrap'
 
 const HighlightWrapper = styled.div`
   width: 95%;
@@ -445,16 +445,20 @@ class SinglyLinkedList extends Component {
 
   render() {
     return (
-      <div>
-          <h1>Singly Linked List</h1>
-          <h3>What is it?</h3>
-          <h3>Big O</h3>
-          <h3>Examples / Use Cases</h3>
-          <h3>Interactive Animation</h3>
-          <div id="singly"></div>
-        <>
+          <Card style={{ width: '450px'}}> 
+          <Card.Header><h1>Singly Linked List</h1></Card.Header>
+          <Card.Body>
+            <Card.Title>What is it?</Card.Title>
+            <Card.Text>
+            In computer science, a Singly Linked List is a linear collection of data elements, whose order is not given by their physical placement in memory. Instead, each element points to the next. It is a data structure consisting of a collection of nodes which together represent a sequence. In its most basic form, each node contains: data, and a reference (in other words, a link) to the next node in the sequence. This structure allows for efficient insertion or removal of elements from any position in the sequence during iteration.
+            </Card.Text>
+
+            <Card.Title>Interactive Animation</Card.Title>
+            <div id="singly"></div>
+            
+            <>
         <Button variant="primary" onClick={()=> this.handleShow("code")}>
-          Show What's Under the Hood
+          Sample Code
         </Button>
 
         <Modal size="lg" show={this.state.code.show} onHide={() => this.handleClose("code")}>
@@ -673,210 +677,10 @@ class SinglyLinkedList extends Component {
           </Modal.Footer>
         </Modal>
       </>
+        
 
-      <>
-      <Button variant="warning" onClick={()=> this.handleShow("experiments")}>
-          Show Console Experiments
-        </Button>
-
-        <Modal size="lg" show={this.state.experiments.show} onHide={() => this.handleClose("experiments")}>
-          <Modal.Header closeButton>
-            <Modal.Title>Console Experiments</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-          <HighlightWrapper>
-              <Highlight innerHTML={true}>{'<h3>Console Experiments</h3>'}</Highlight>
-              <Highlight language="javascript">
-                {`            
-                  /* 
-                    Pop Tests, pop a node off, then display the current value of the list after pop
-                    Repeat until list is empty.
-                  */
-                  
-                  // Instantiate a new list
-                  var list = new SinglyLinkedList();
-                  
-                  // Push three nodes on to it
-                  list.push("Hello");
-                  list.push("Goodbye");
-                  list.push("World");
-                  
-                  // Get rid of one
-                  list.pop();
-                  // Display
-                  list
-                  // ^^ Repeat
-                  list.pop();
-                  list
-                  list.pop();
-                  list
-                  
-                  
-                  /* 
-                    Shift Tests, can reuse the original list if still in the same console session
-                  */
-                  
-                  // Push three nodes on to it
-                  list.push("Hello");
-                  list.push("Goodbye");
-                  list.push("World");
-                  
-                  // Shift the nodes over and remove the head
-                  list.shift();
-                  // Display the results
-                  list
-                  // ^^ Repeat
-                  list.shift();
-                  list
-                  list.shift();
-                  list
-                  
-                  /*
-                    Unshift Tests, 
-                  */
-                  
-                  // Push three nodes on to it
-                  list.push("Hello");
-                  list.push("Goodbye");
-                  list.push("World");
-                  // Add a new head node
-                  list.unshift("Added");
-                  // Display the results
-                  list
-                  // Remove all of the nodes
-                  list.pop();
-                  list.pop();
-                  list.pop();
-                  list.pop();
-                  
-                  // Will Hi will become the head and tail node
-                  list.unshift("Hi");
-                  // Unshift again, and watch "Hi" become the tail node, while "Bye" becomes the new head node
-                  list.unshift("Bye");
-                  // Clear out our list
-                  list.pop();
-                  list.pop();
-                  /*
-                    Get Tests
-                  */
-                  
-                  // Push four nodes on to the list
-                  list.push("Hello");
-                  list.push("Goodbye");
-                  list.push("World");
-                  list.push("<3");
-                  
-                  // Should return "Hello"
-                  list.get(0);
-                  // Should return "Goodbye"
-                  list.get(1);
-                  // Should return "World"
-                  list.get(2);
-                  // Should return "<3"
-                  list.get(3);
-                  // Out of bounds, Should return null
-                  list.get(5);
-                  
-                  /* 
-                    Set Tests
-                  */
-                  
-                  // Should return "World"
-                  list.get(2);
-                  // Should return true on success
-                  list.set(2, "My Friends");
-                  // Should now return "My Friends" at index 2
-                  list.get(2);
-                  
-                  /* 
-                    Insert Tests
-                  */
-                  
-                  // First we're going to add something to the start of the list
-                  // Display the current list
-                  list
-                  // Insert at 0, Should return true
-                  list.insert(0, "First");
-                  // List should display length of five with First at the head
-                  list
-                  
-                  // Now we're going to add something to the end of the list
-                  // Should return null
-                  list.get(5);
-                  // Should return true
-                  list.insert(5, "LAST");
-                  // Should return "LAST"
-                  list.get(5);
-                  
-                  /* 
-                    Remove Tests 
-                  */
-                  
-                  // Remove from the Front
-                  // Display the list, should be a length of 6, with First at head, and LAST at tail
-                  list
-                  // Should return the node removed of "First"
-                  list.remove(0);
-                  // Display the list, should be a length of 5, with Hello at head, and LAST at tail
-                  list
-                  
-                  // Remove from the middle
-                  // Should return the node removed of "<3"
-                  list.remove(3);
-                  // Display the list, should be a length of 4, with Hello at head, and LAST at tail
-                  list 
-                  
-                  
-                  // Remove from the End
-                  // Should return the node removed of "LAST"
-                  list.remove(3);
-                  // Display the list, should be a length of 3, with Hello at head, and My Friends at tail
-                  list
-                  
-                  /*
-                    Reverse Tests
-                  */
-                  
-                  // For this it will probably be easier to run a new console session
-                  // After copying and pasting the Node and Stringly Linked List classes into the console run these commands
-                  
-                  // Instantiates a new list
-                  var list = new SinglyLinkedList();
-                  
-                  // Pushes four values into the list
-                  list.push("Hello");
-                  list.push("Goodbye");
-                  list.push("World");
-                  list.push("<3");
-                  
-                  // Displays whats in the list as an array
-                  list.print();
-                  
-                  // Run this to reverse the list
-                  list.reverse();
-                  
-                  // Display the freshly reversed list with the print function
-                  list.print();
-                  
-                  /* 
-                    Please forgive my grammar and comment over kill.
-                    I hope you enjoyed the demo and were able to follow along!
-                    - Brendan Pettis 
-                  */
-                `}
-              </Highlight>
-            </HighlightWrapper>
-
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={()=> this.handleClose("experiments")}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
-          
-      </div>
+          </Card.Body>
+        </Card>
     );
   }
 }

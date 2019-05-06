@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './index.css';
 
 /* Simple error page incase user tries to go somewhere they're not supposed to 
     not a requirement but felt appropriate.
