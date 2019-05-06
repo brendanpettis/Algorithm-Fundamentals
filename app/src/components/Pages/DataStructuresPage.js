@@ -2,7 +2,7 @@ import React from 'react';
 import ParallelArray from '../Data-Structures/ParallelArray/ParallelArray'
 import SinglyLinkedList from '../Data-Structures/SinglyLinkedList/SinglyLinkedList'
 import BinaryTree from '../Data-Structures/BinaryTree/BinaryTree'
-import { size, device } from './device';
+import { device } from './device';
 
 import styled from 'styled-components'
 

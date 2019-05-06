@@ -1,7 +1,39 @@
 import React, { Component } from 'react'
+import Highlight from 'react-highlight'
+import styled from 'styled-components'
+import { Modal, Button, Card } from 'react-bootstrap'
+
 import './style.css';
 
+const HighlightWrapper = styled.div`
+  width: 95%;
+  margin: auto;
+`;
+
 class BubbleSort extends Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+
+    this.state = {
+      code: {
+        show: false
+      },
+      experiments: {
+        show: false
+      }
+    };
+  }
+
+  handleClose(name) {
+    this.setState({ [name]: { show: false }});
+  }
+
+  handleShow(name) {
+    this.setState({ [name]: { show: true }});
+  }
 
   componentDidMount = () => {
     var N = 40; // Array Size
@@ -76,12 +108,53 @@ class BubbleSort extends Component {
     init();
   }
 
+  rerun = () => {
+    this.componentDidMount();
+  }
   render() {
     return (
-      <div>
-          <h1>Bubble Sort</h1>
-          <canvas id="canvas" width="400" height="400" />
-      </div>
+      <Card style={{ width: '450px'}}> 
+      <Card.Header><h1>Bubble Sort</h1></Card.Header>
+      <Card.Body>
+        <Card.Title>What is it?</Card.Title>
+        <Card.Text>
+        Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, compares adjacent pairs and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements "bubble" to the top of the list. Although the algorithm is simple, it is too slow and impractical for most problems even when compared to insertion sort. Bubble sort can be practical if the input is in mostly sorted order with some out-of-order elements nearly in position.
+        </Card.Text>
+
+        <Card.Title>Visual Animation</Card.Title>
+        <canvas id="canvas" width="400" height="100" />
+        
+        <>
+    <Button variant="primary" onClick={()=> this.handleShow("code")}>
+      Sample Code
+    </Button>
+      <Button style={{marginLeft: 4}}variant="secondary" onClick={() => this.rerun()}>Replay</Button>
+    <Modal size="lg" show={this.state.code.show} onHide={() => this.handleClose("code")}>
+      <Modal.Header closeButton>
+        <Modal.Title>Sample Code Implementation</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+      <HighlightWrapper>
+          <Highlight innerHTML={true}>{'<h3>Sample Code Implementation</h3>'}</Highlight>
+          <Highlight language="javascript">
+            {`
+
+          
+            `}
+          </Highlight>
+        </HighlightWrapper>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={()=> this.handleClose("code")}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  </>
+    
+
+      </Card.Body>
+    </Card>
     );
   }
 }
