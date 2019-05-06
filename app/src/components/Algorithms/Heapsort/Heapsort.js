@@ -51,7 +51,7 @@ class Heapsort extends Component {
       var addColorDuration = 1000;
       
       var margin = {top: 50, right: 90, bottom: 30, left: 90},
-          width = 450 - margin.left - margin.right,
+          width = 400 - margin.left - margin.right,
           height = 300 - margin.top - margin.bottom;
       
       var svg = d3.select("#heapbox")
