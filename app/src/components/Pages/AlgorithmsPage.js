@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { device } from './device'
 import BubbleSort from '../Algorithms/BubbleSort/BubbleSort'
+import Quicksort from '../Algorithms/Quicksort/Quicksort'
 
 const AlgorithmsLayout = styled.div`
 
@@ -37,6 +38,7 @@ const AlgorithmsPage = () => (
         <AlgorithmsLayout>
             <CardWrapper>
                 <BubbleSort/>
+                <Quicksort/>
             </CardWrapper>
         </AlgorithmsLayout>
 );
