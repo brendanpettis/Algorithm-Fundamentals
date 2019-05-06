@@ -1,16 +1,33 @@
 import React from 'react'
-import Jumbotron from 'react-bootstrap/Jumbotron'
+import styled from 'styled-components'
+import { device } from './device'
+import Wave from '../Wave/Wave'
+
+const HomeLayout = styled.div`
+
+    @media ${device.laptop} { 
+        max-width: 900px;
+    }
+
+    @media ${device.laptopL} {
+        max-width: 1600px;
+    }
+`
+
+const CardWrapper = styled.div`
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: auto;
+    justify-items: center;
+`;
 
 const HomePage = () => (
-  <div>
-     Home Page
-      <Jumbotron>
-        <h1>Hello World!</h1>
-        <p>
-          This project is in active development but feel free to explore!
-        </p>
-    </Jumbotron>
-  </div>
+    <HomeLayout>
+      <CardWrapper>
+          <Wave />
+      </CardWrapper>
+    </HomeLayout>
 );
 
 export default HomePage;

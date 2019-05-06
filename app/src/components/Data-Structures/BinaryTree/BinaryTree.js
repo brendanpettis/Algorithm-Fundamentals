@@ -54,7 +54,7 @@ class BinaryTree extends Component {
       
       // Insert Node
       insert(node, root){
-          if (node.value == root.value){
+          if (node.value === root.value){
               return ;
           }
           else if(node.value < root.value){
@@ -265,12 +265,11 @@ class BinaryTree extends Component {
               .attr('d', function(d){ return diagonal(d, d.parent) });
           
           // Remove any existing links
-          var linkExit = link.exit().transition()
+          link.exit().transition()
                   .duration(duration)
                   .attr('d', function(d){
                       var o = {x: source.x, y: source.y};
-                  })
-                  .remove();
+                  }).remove();
           
           // Store the old positions for transition.
           nodes.forEach(function(d){

@@ -21,10 +21,10 @@ const Header = () => (
         
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ml-auto">         
+          <Nav className="ml-auto"> 
+            
               <NavLink className="nav-link" to='/' activeClassName='is-active' exact={true}>Home</NavLink>          
-              <NavLink className="nav-link" to='/algorithms' activeClassName='is-active'>Algorithms</NavLink>        
-              <NavLink className="nav-link" to='/datastructures' activeClassName='is-active'>Data Structures</NavLink>   
+              <Nav.Link className="nav-link" href="/algorithms" activeClassName='is-active'>Algorithms</Nav.Link>    <Nav.Link className="nav-link" href="/datastructures" activeClassName='is-active'>Data Structures</Nav.Link>   
           </Nav>
         </Navbar.Collapse>
       </Navbar>
