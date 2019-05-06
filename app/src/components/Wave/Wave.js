@@ -251,9 +251,10 @@ class Wave extends Component {
 
   render() {
     return (
-      
+   <>   
+        <h1>Hello World!</h1>
       <div id="example"></div>
- 
+    </>
     );
   }
 }
