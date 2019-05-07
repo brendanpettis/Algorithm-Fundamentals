@@ -21,9 +21,7 @@ class Quicksort extends Component {
       code: {
         show: false
       },
-      experiments: {
-        show: false
-      }
+      run: false
     };
   }
 
@@ -35,7 +33,18 @@ class Quicksort extends Component {
     this.setState({ [name]: { show: true }});
   }
 
-  componentDidMount = () => {
+  componentWillUnmount = () => {
+    let el = document.getElementById('qs');
+
+    if(el){
+      el.remove();
+    }
+  }
+
+  run = () => {
+
+    this.setState({ run: true });
+
     var n = 150
 
     var z = d3.scaleSequential(d3.interpolateRainbow).domain([0, n])
@@ -113,11 +122,17 @@ class Quicksort extends Component {
 
   }
 
-  rerun = () => {
+  reset = () => {
     let el = document.getElementById('qs');
-    el.remove();
-    this.componentDidMount();
+ 
+    if(el){
+      el.remove();
+    }
+
+    this.run();
   }
+
+  com
   render() {
     return (
       <Card style={{ width: '450px'}}> 
@@ -132,10 +147,13 @@ class Quicksort extends Component {
         <div id="quicky"></div>
         
         <>
-    <Button variant="primary" onClick={()=> this.handleShow("code")}>
+
+    <Button variant="secondary" onClick={() => this.run()} disabled={this.state.run}>Run</Button>
+      <Button style={{marginLeft: 4}} variant="secondary" onClick={() => this.reset()} disabled={!this.state.run}>Replay</Button>
+      <Button style={{marginLeft: 4}} variant="primary" onClick={()=> this.handleShow("code")}>
       Sample Code
     </Button>
-      <Button style={{marginLeft: 4}}variant="secondary" onClick={() => this.rerun()}>Replay</Button>
+
     <Modal size="lg" show={this.state.code.show} onHide={() => this.handleClose("code")}>
       <Modal.Header closeButton>
         <Modal.Title>Sample Code Implementation</Modal.Title>
