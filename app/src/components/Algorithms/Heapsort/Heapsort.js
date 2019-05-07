@@ -455,7 +455,7 @@ class Heapsort extends Component {
           holders.bigChild = bigChildIndex( ind )
           holders.starter = ind;
       
-          if(nodes[ind].children) {
+          if(nodes[ind] && nodes[ind].children) {
             childindexes = nodes[ind].children.map(function(d,i){
               return d.id;
             })
