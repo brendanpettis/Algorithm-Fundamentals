@@ -5,3 +5,60 @@
   justify-content: center;
   width: 100vw;
 }
+
+h2 {
+  padding-top: 50px;
+  margin-top: 50px;
+}
+
+.aside{
+  text-align: center; 
+  display: block;
+  float: left;
+  margin: 0 auto;
+  width: 50%;
+  height: 225px;
+  min-width: 225px;
+  margin-bottom: 100px;
+}
+
+.bside{
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  height: 225px;
+  min-width: 225px;
+  margin-bottom: 100px;
+}
+
+.headshot{
+  opacity: .85;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  display: block; 
+}
+
+.headshot:hover{
+  opacity: 1;
+}
+
+.groupshot{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 200px;
+  max-width: 800px;
+  display: block; 
+}
+
+.students{
+height: 350px;
+padding-top: 120px;
+padding-bottom: 120px;
+display: block;
+}
+
