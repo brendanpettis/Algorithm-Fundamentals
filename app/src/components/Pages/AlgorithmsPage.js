@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import styled from 'styled-components'
 
 import { device } from './device'
@@ -33,18 +33,19 @@ const CardWrapper = styled.div`
   @media ${device.laptopL} {
     grid-template-columns: auto auto auto;
 }
+`
 
-`;
-
-const AlgorithmsPage = () => (
-        <AlgorithmsLayout>
-            <CardWrapper>
-                <BubbleSort/>
-                <Quicksort/>
-                <Heapsort/>
-                <MergeSort />
-            </CardWrapper>
-        </AlgorithmsLayout>
-);
+const AlgorithmsPage = () => {
+  return (
+    <AlgorithmsLayout>
+    <CardWrapper>
+        <BubbleSort/>
+        <Quicksort/>
+        <Heapsort/>
+        <MergeSort />
+    </CardWrapper>
+</AlgorithmsLayout>
+  )
+}
 
 export default AlgorithmsPage;

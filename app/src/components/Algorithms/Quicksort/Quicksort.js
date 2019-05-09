@@ -5,6 +5,8 @@ import Highlight from 'react-highlight'
 import styled from 'styled-components'
 import { Modal, Button, Card } from 'react-bootstrap'
 
+import '../global.js'
+
 const HighlightWrapper = styled.div`
   width: 95%;
   margin: auto;
@@ -43,6 +45,12 @@ class Quicksort extends Component {
 
   run = () => {
 
+    let el = document.getElementById('ms');
+ 
+    if(el){
+      el.remove();
+    }
+    
     this.setState({ run: true });
 
     var n = 150
@@ -123,6 +131,10 @@ class Quicksort extends Component {
   }
 
   reset = () => {
+    global.stop = true;
+
+    console.log(global.stop);
+
     let el = document.getElementById('qs');
  
     if(el){
@@ -132,7 +144,6 @@ class Quicksort extends Component {
     this.run();
   }
 
-  com
   render() {
     return (
       <Card style={{ width: '450px'}}> 

@@ -5,6 +5,8 @@ import Highlight from 'react-highlight'
 import styled from 'styled-components'
 import { Modal, Button, Card } from 'react-bootstrap'
 
+import '../global.js'
+
 const HighlightWrapper = styled.div`
   width: 95%;
   margin: auto;
@@ -42,6 +44,11 @@ class Heapsort extends Component {
   }
 
   run = () => {
+    let el = document.getElementById('ms');
+ 
+    if(el){
+      el.remove();
+    }
 
     this.setState({ run: true });
 
@@ -931,6 +938,9 @@ class Heapsort extends Component {
   }
 
   reset = () => {
+
+    global.stop = true;
+
     let el = document.getElementById('heap');
 
     if(el){

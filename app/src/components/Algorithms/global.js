@@ -1,0 +1,1 @@
+global.stop = false;
