@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { device } from './device'
 import BubbleSort from '../Algorithms/BubbleSort/BubbleSort'
+import CountingSort from '../Algorithms/CountingSort/CountingSort'
 import MergeSort from '../Algorithms/MergeSort/MergeSort'
 import Quicksort from '../Algorithms/Quicksort/Quicksort'
 import Heapsort from '../Algorithms/Heapsort/Heapsort'
@@ -43,6 +44,7 @@ const AlgorithmsPage = () => {
         <Quicksort/>
         <Heapsort/>
         <MergeSort />
+        <CountingSort />
     </CardWrapper>
 </AlgorithmsLayout>
   )
